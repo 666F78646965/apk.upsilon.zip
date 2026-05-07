@@ -28,7 +28,25 @@
 </head>
 <body>
 
-    <a href="apk.upsilon.zip" type="application/octet-stream" class="download-button" download="apk.upsilon.zip">apk.upsilon.zip</a>
+    <a href="apk.upsilon.zip" 
+       id="downloadBtn"
+       type="application/octet-stream" 
+       class="download-button" 
+       download="apk.upsilon.zip">
+       apk.upsilon.zip
+    </a>
+
+    <script>
+        document.getElementById('downloadBtn').addEventListener('click', function(event) {
+            // Affiche la boîte de confirmation
+            var confirmation = confirm("Are you sure you want to download apk.upsilon.zip?");
+            
+            // Si l'utilisateur clique sur "Annuler", on bloque le téléchargement
+            if (!confirmation) {
+                event.preventDefault();
+            }
+        });
+    </script>
 
 </body>
 </html>
